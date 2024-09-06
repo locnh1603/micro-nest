@@ -1,0 +1,44 @@
+{
+  "name": "cms",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/cms/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project cms --web",
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "development",
+      "options": {
+        "outputPath": "dist/cms",
+        "development": {
+          "outputPath": "dist/cms"
+        },
+        "production": {
+          "outputPath": "dist/cms"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "cms:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "cms:build:development",
+          "dev": true,
+          "port": 4204
+        },
+        "production": {
+          "buildTarget": "cms:build:production",
+          "dev": false
+        }
+      }
+
+    }
+  }
+}
