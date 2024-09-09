@@ -11,7 +11,9 @@ export default function RootLayout({
       <Head>
         <title>Welcome to cms</title>
       </Head>
-      <body>{children}</body>
+      <body>
+        {children}
+      </body>
     </html>
   );
 }
