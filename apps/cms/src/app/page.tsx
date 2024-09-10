@@ -1,7 +1,7 @@
-export default function Index() {
-  return (
-    <div>
-      Hello World
-    </div>
-  );
+'use server'
+
+import { redirect } from 'next/navigation';
+
+export default async function Index() {
+  redirect('/dashboard');
 }
